@@ -1,0 +1,53 @@
+server:
+  port: 9000
+  tomcat:
+    uri-encoding: UTF-8
+
+web.upload-path: F:/IdeaProjects/img/
+spring:
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,\classpath:/static/,classpath:/public/,file:${web.upload-path}
+  mvc:
+    static-path-pattern: /**
+  datasource:
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    #意思是连接了1000毫秒后没接连成功就断开连接。
+    timeout: 1000
+    #Lettuce 当多线程使用同一连接实例时，是线程安全的 jedis不安全
+    jedis:
+      pool:
+        #最大空闲数
+        max-idle: 8
+        #连接池的最大数据库连接数。设为0表示无限制
+        max-active: 0
+        #最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
+        max-wait: 1000
+
+
+jwt:
+  header: Authorization
+  secret: secretkey
+  expiration: 604800
+  route:
+    authentication:
+      path: auth
+      refresh: refresh
+
