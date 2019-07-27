@@ -147,6 +147,7 @@ export default class HomePage extends Vue {
         }
     });
   }
+  
   private loginOut() {
     localForage.removeItem('isLogin');
     localForage.removeItem('USER');
@@ -160,8 +161,7 @@ export default class HomePage extends Vue {
   }
 
   private linkTo(articleId: string) {
-    this.$router.push({path: '/article-page', query: {articleId: articleId} });
+    this.$router.push({path: '/article-page', query: {articleId} });
   }
-
 }
 

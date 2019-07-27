@@ -23,7 +23,6 @@
                         <i class="el-icon-menu"></i>
                         <span slot="title">垃圾箱</span>
                     </el-menu-item>
-                </el-submenu>
                 </el-menu>
             </el-col>
             <el-col :span="18">

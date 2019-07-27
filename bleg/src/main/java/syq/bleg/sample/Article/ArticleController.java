@@ -1,13 +1,14 @@
 package syq.bleg.sample.Article;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
-import syq.bleg.utils.MyResult;
+import syq.bleg.base.MyResult;
 
 import java.util.Date;
 import java.util.UUID;
@@ -26,6 +27,7 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
+    @ApiOperation(value = "新增文章", notes = "新增文章")
     @PostMapping(value = "/article")
     public MyResult<Article> addArticle(@RequestBody Article article) {
         if (StringUtils.isEmpty(article.getTitle())) {
@@ -41,12 +43,14 @@ public class ArticleController {
         return new MyResult<Article>().success(article1, 200, "success");
     }
 
+    @ApiOperation(value = "查询文章", notes = "查询文章")
     @GetMapping(value = "/articles")
     public Page<Article> queryByPage(@RequestParam Integer page,@RequestParam Integer size) {
         Pageable pageable = PageRequest.of(page, size, null);
         return articleService.getArticleByPage(pageable);
     }
 
+    @ApiOperation(value = "获取文章", notes = "获取文章")
     @GetMapping(value = "/article")
     public MyResult<Article> getArticle(@RequestParam String id) {
         return new MyResult<Article>().success(articleService.getArticle(id), 200, "success");

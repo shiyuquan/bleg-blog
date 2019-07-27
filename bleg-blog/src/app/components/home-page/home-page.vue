@@ -117,6 +117,7 @@
                                     <el-col :span="24">
                                         <button class="login-form-btn pull-left" type="button" @click="login">登录</button>
                                         <button class="login-form-btn pull-right" v-on:click="toRegister" type="button">注册</button>
+                                        <button class="login-form-btn pull-right" v-on:click="mapces" type="button">map</button>
                                     </el-col>
                                 </el-row>
                             </form>

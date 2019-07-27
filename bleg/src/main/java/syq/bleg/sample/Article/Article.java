@@ -8,7 +8,6 @@ import java.util.Date;
  * @Date 2018/10/17 19:52
  * @Description TODO
  */
-
 @Entity
 @Table(name = "article")
 public class Article {

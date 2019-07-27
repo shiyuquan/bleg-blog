@@ -21,7 +21,6 @@ import java.time.Duration;
 /**
  * @Author shiyuquan
  * @Date 2018/9/18 20:31
- * @Description TODO
  */
 @Configuration
 @EnableCaching
@@ -34,6 +33,7 @@ public class RedisConfig {
         return RedisCacheManager.builder(RedisCacheWriter.nonLockingRedisCacheWriter(redisConnectionFactory))
                 .cacheDefaults(redisCacheConfiguration).build();
     }
+
     @Bean
     public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory connectionFactory) {
         RedisTemplate<Object, Object> template = new RedisTemplate<>();

@@ -4,14 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.StringUtils;
 import syq.bleg.intermediatetable.article2tag.Article2TagDao;
-import syq.bleg.utils.jdbc.MyJdbcTemplate;
+import syq.bleg.base.db.jdbc.MyJdbcTemplate;
 
 import javax.annotation.Resource;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**

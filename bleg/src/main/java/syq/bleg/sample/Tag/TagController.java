@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import syq.bleg.intermediatetable.article2tag.Article2TagService;
-import syq.bleg.utils.MyResult;
+import syq.bleg.base.MyResult;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,8 +52,8 @@ public class TagController {
     }
 
     @GetMapping(value = "tag")
-    public MyResult<List<Tag>> getTagList() {
+    public MyResult getTagList() {
         List<Tag> tags = tagService.getAll();
-        return new MyResult<List<Tag>>().success(tags, 200, "success");
+        return new MyResult().success("[]".getBytes(), 200, "success");
     }
 }

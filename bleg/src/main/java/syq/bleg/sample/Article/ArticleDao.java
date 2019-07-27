@@ -5,7 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import syq.bleg.utils.jdbc.MyJdbcTemplate;
+import syq.bleg.base.db.jdbc.MyJdbcTemplate;
 
 import javax.annotation.Resource;
 import java.util.HashMap;

@@ -3,7 +3,6 @@ server:
   tomcat:
     uri-encoding: UTF-8
 
-web.upload-path: F:/IdeaProjects/img/
 spring:
   resources:
     static-locations: classpath:/META-INF/resources/,classpath:/resources/,\classpath:/static/,classpath:/public/,file:${web.upload-path}
@@ -14,6 +13,20 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      validationQuery: SELECT 1
+      initialSize: 2
+      minIdle: 10
+      maxActive: 200
+      minEvictableIdleTimeMillis: 180000
+      testOnBorrow: false
+      testWhileIdle: true
+      removeAbandoned: true
+      removeAbandonedTimeout: 1800
+      logAbandoned: true
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: true
   jpa:
     database: MYSQL
     show-sql: true
@@ -30,7 +43,7 @@ spring:
     host: 127.0.0.1
     port: 6379
     #意思是连接了1000毫秒后没接连成功就断开连接。
-    timeout: 1000
+    timeout: 1000ms
     #Lettuce 当多线程使用同一连接实例时，是线程安全的 jedis不安全
     jedis:
       pool:
@@ -39,7 +52,7 @@ spring:
         #连接池的最大数据库连接数。设为0表示无限制
         max-active: 0
         #最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
-        max-wait: 1000
+        max-wait: 1000ms
 
 
 jwt:
@@ -50,4 +63,12 @@ jwt:
     authentication:
       path: auth
       refresh: refresh
+
+# 文件路径
+web.upload-path: E:/Code/BlegBlog/img
+
+# request 解码开关
+http.request.decode: true
+# response 编码开关
+http.response.encode: true
 
